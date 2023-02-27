@@ -45,7 +45,7 @@ public class phonebook {
         System.out.println("Контакт для удаления: ");
         Scanner sn = new Scanner(System.in);
         String name = sn.nextLine();
-        System.out.println(phonebook.get(name));
+        phonebook.remove(name);
 
     }
 
