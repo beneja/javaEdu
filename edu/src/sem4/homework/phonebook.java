@@ -18,11 +18,7 @@ public class phonebook {
         System.out.println("Введите имя: ");
         Scanner sn = new Scanner(System.in);
         String name = sn.nextLine();
-//        System.out.println("Введите номер: ");
-//        Scanner sn1 = new Scanner(System.in);
-//        int number = sn1.nextInt();
         HashSet<Integer> numbers = new HashSet<>();
-//        numbers.add(number);
         phonebook.put(name, numbers);
     }
 
@@ -35,9 +31,7 @@ public class phonebook {
         System.out.println("Введите номер: ");
         Scanner sn1 = new Scanner(System.in);
         int number = sn1.nextInt();
-
-//        numbers.add(number);
-//        phonebook.put(name, numbers);
+        phonebook.get(name).add(number);
 
     }
 
@@ -56,13 +50,13 @@ public class phonebook {
         int x = 0;
         String choice = "";
 
-        while (!"4".equals(choice)) {
+        while (!"5".equals(choice)) {
             System.out.println("Введите номер операции для выбора действия: \n" +
                     "1. Добавить контакт\n" +
-                    "2. Найти телефон\n" +
-                    "3. Удалить контакт\n" +
-                    "4. Выход\n" +
-                    "5. Добавить телефон");
+                    "2. Добавить телефон\n" +
+                    "3. Найти телефон\n" +
+                    "4. Удалить контакт\n" +
+                    "5. Выход");
 
             choice = scan.next();
 
@@ -74,9 +68,9 @@ public class phonebook {
 
             switch (x) {
                 case 1 -> addLogin(phonebook);
-                case 2 -> findLogin(phonebook);
-                case 3 -> delNumber(phonebook);
-                case 5 -> addPhone((phonebook));
+                case 2 -> addPhone((phonebook));
+                case 3 -> findLogin(phonebook);
+                case 4 -> delNumber(phonebook);
             }
         }
     }
