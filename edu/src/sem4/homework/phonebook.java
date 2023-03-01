@@ -35,12 +35,27 @@ public class phonebook {
 
     }
 
-    static void delNumber(HashMap<String, HashSet<Integer>> phonebook) {
+    static void delLogin(HashMap<String, HashSet<Integer>> phonebook) {
+        System.out.println(phonebook.keySet());
         System.out.println("Контакт для удаления: ");
         Scanner sn = new Scanner(System.in);
         String name = sn.nextLine();
         phonebook.remove(name);
 
+    }
+
+    static void delPhone(HashMap<String, HashSet<Integer>> phonebook) {
+        System.out.println(phonebook.keySet());
+        System.out.println("Введите имя контакта: ");
+        Scanner sn = new Scanner(System.in);
+        String name = sn.nextLine();
+        Set<Integer> value = phonebook.get(name);
+        System.out.println(value);
+        System.out.println("Введите номер, который хотите удалить: ");
+        Scanner sn1 = new Scanner(System.in);
+        int number = sn1.nextInt();
+        phonebook.get(name).remove(number);
+        System.out.println("Готово");
     }
 
 
@@ -50,13 +65,15 @@ public class phonebook {
         int x = 0;
         String choice = "";
 
-        while (!"5".equals(choice)) {
-            System.out.println("Введите номер операции для выбора действия: \n" +
-                    "1. Добавить контакт\n" +
-                    "2. Добавить телефон\n" +
-                    "3. Найти телефон\n" +
-                    "4. Удалить контакт\n" +
-                    "5. Выход");
+        while (!"6".equals(choice)) {
+            System.out.println("""
+                    Введите номер операции для выбора действия:\s
+                    1. Добавить контакт
+                    2. Добавить телефон
+                    3. Найти телефон
+                    4. Удалить контакт
+                    5. Удалить телефон
+                    6. Выход""");
 
             choice = scan.next();
 
@@ -70,7 +87,8 @@ public class phonebook {
                 case 1 -> addLogin(phonebook);
                 case 2 -> addPhone((phonebook));
                 case 3 -> findLogin(phonebook);
-                case 4 -> delNumber(phonebook);
+                case 4 -> delLogin(phonebook);
+                case 5 -> delPhone(phonebook);
             }
         }
     }
